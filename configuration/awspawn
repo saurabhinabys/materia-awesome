@@ -8,15 +8,15 @@
 
 # List of applications to run
 APPS=(
-    keepassxc
     kdeconnect-indicator
-    radeon-profile
-    $(ls $HOME/.appimage/Nextcloud*)
+    pa-applet
+    nm-applet
+    nextcloud
     )
 
 # Some applications start child applications that need to be killed on reload
 KILL=(
-    synergyc
+    
     )
 
 # First kill lingering apps
