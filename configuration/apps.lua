@@ -19,11 +19,11 @@ return {
     -- Editing these also edits the default program
     -- associated with each tag/workspace
     browser = 'vivaldi-stable',
-    editor = 'gedit', -- gui text editor
+    editor = 'terminator', -- replace text editor with term
     social = 'discord',
     game = rofi_command,
     files = 'nautilus -w',
-    music = rofi_command
+    music = 'spotify'
   },
   -- List of apps to start once on start-up
   run_on_start_up = {
@@ -33,15 +33,12 @@ return {
     --'blueberry-tray', -- Bluetooth tray icon
     --'xfce4-power-manager', -- Power manager
     'ibus-daemon --xim', -- Ibus daemon for keyboard
-    'scream -u -p 4011 -i virbr1', -- scream audio sink
     'numlockx on', -- enable numlock
     '/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)', -- credential manager
     --KDE '/usr/lib/x86_64-linux-gnu/libexec/polkit-kde-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)', -- credential manager
     -- MATE'/usr/lib/mate-polkit/polkit-mate-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)', -- credential manager
-     'flameshot',
-     'synology-drive -minimized',
-     'steam -silent',
-     'discord',
+    'DRI_PRIME=1 steam -silent',
+    'transmission-gtk --minimized'
     -- Add applications that need to be killed between reloads
     -- to avoid multipled instances, inside the awspawn script
     '~/.config/awesome/configuration/awspawn' -- Spawn "dirty" apps that can linger between sessions
