@@ -88,16 +88,16 @@ local LayoutBox = function(s)
 end
 
 local TopPanel = function(s, offset)
-  local offsetx = 0
+  local offsetx = 0 
   if offset == true then
-    offsetx = dpi(48)
+    offsetx = dpi(38)
   end
   local panel =
     wibox(
     {
       ontop = true,
       screen = s,
-      height = dpi(28),
+      height = dpi(38),
       width = s.geometry.width - offsetx,
       x = s.geometry.x + offsetx,
       y = s.geometry.y,
@@ -105,14 +105,14 @@ local TopPanel = function(s, offset)
       bg = beautiful.background.hue_800,
       fg = beautiful.fg_normal,
       struts = {
-        top = dpi(28)
+        top = dpi(48)
       }
     }
   )
 
   panel:struts(
     {
-      top = dpi(28)
+      top = dpi(38)
     }
   )
 

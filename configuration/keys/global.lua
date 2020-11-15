@@ -93,16 +93,16 @@ local globalKeys =
     {description = 'Mark an area and screenshot it 10 seconds later (clipboard)', group = 'screenshots (clipboard)'}
   ),
   awful.key(
-    {},
-    'Print',
+    {modkey},
+    'p',
     function()
       awful.util.spawn_with_shell(apps.default.screenshot)
     end,
     {description = 'Take a screenshot of your active monitor and copy it to clipboard', group = 'screenshots (clipboard)'}
   ),
   awful.key(
-    {'Control'},
-    'Print',
+    {altkey, 'Shift'},
+    'p',
     function()
       awful.util.spawn_with_shell(apps.default.region_screenshot)
     end,
@@ -304,9 +304,28 @@ local globalKeys =
     {},
     'XF86AudioNext',
     function()
+	awful.spawn('playerctl next')
       --
     end,
-    {description = 'toggle mute', group = 'hotkeys'}
+    {description = 'toggle next', group = 'hotkeys'}
+  ),
+   awful.key(
+    {},
+    'XF86AudioPrev',
+    function()
+	awful.spawn('playerctl previous')
+      --
+    end,
+    {description = 'toggle previous', group = 'hotkeys'}
+  ),
+ awful.key(
+    {},
+    'XF86AudioPlay',
+    function()
+	awful.spawn('playerctl play-pause')
+      --
+    end,
+    {description = 'toggle previous', group = 'hotkeys'}
   ),
   awful.key(
     {},
@@ -355,7 +374,7 @@ local globalKeys =
       awful.util.spawn_with_shell('vm-attach attach')
     end
   ),
-   -- Lutris hotkey
+  -- Lutris hotkey
   awful.key(
     {modkey},
     'g',
@@ -363,12 +382,20 @@ local globalKeys =
       awful.util.spawn_with_shell('lutris')
     end
   ),
-  -- System Monitor hotkey - MATE version
+  -- System Monitor hotkey
   awful.key(
     {modkey},
     'm',
     function()
       awful.util.spawn_with_shell('mate-system-monitor')
+    end
+  ),
+  -- Kill VLC
+  awful.key(
+    {modkey},
+    'v',
+    function()
+      awful.util.spawn_with_shell('killall -9 vlc')
     end
   ),
   -- File Manager
@@ -378,9 +405,35 @@ local globalKeys =
     function()
       awful.util.spawn(apps.default.files)
     end,
-    {description = 'Default File Manager launch', group = 'hotkeys'}
-  )
+    {description = 'filebrowser', group = 'hotkeys'}
+  ),
+  -- Emoji Picker
+  awful.key(
+    {modkey},
+    'a',
+    function()
+      awful.util.spawn_with_shell('ibus emoji')
+    end,
+    {description = 'Open the ibus emoji picker to copy an emoji to your clipboard', group = 'hotkeys'}
+    ), 
+  -- Switch to headphone output
+   awful.key(
+    {modkey},
+    ']',
+    function()
+    awful.spawn('pactl set-sink-port 0 analog-output-headphones')
+    end
+   ) ,
+  -- Switch to speaker output
+    awful.key(
+    {modkey},
+    '[',
+    function()
+    awful.spawn('pactl set-sink-port 0 analog-output-speaker && pactl set-sink-port 0 analog-input-internal-mic')
+    end
 )
+)
+
 
 -- Bind all key numbers to tags.
 -- Be careful: we use keycodes to make it works on any keyboard layout.

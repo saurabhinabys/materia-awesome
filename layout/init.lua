@@ -8,8 +8,8 @@ awful.screen.connect_for_each_screen(
     if s.index == 1 then
       -- Create the left_panel
       s.left_panel = left_panel(s)
-      -- Create the Top bar
-      s.top_panel = top_panel(s, true)
+--       Create the Top bar
+     s.top_panel = top_panel(s, true)
     else
       -- Create the Top bar
       s.top_panel = top_panel(s, false)
@@ -23,7 +23,7 @@ function updateBarsVisibility()
     if s.selected_tag then
       local fullscreen = s.selected_tag.fullscreenMode
       -- Order matter here for shadow
-      s.top_panel.visible = not fullscreen
+     s.top_panel.visible = not fullscreen
       if s.left_panel then
         s.left_panel.visible = not fullscreen
       end
