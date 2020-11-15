@@ -41,7 +41,7 @@ git clone https://github.com/ChrisTitusTech/material-awesome.git ~/.config/aweso
 > Awesome 4.3 is so new that most of the distributions have not updated it yet. If you want to install this config on Awesome 4.2 (current version on depo) use the specific awesome-4.2 branch (not in development by me)
 
 ```
-git clone -b awesome-4.2 https://github.com/PapyElGringo/material-awesome.git ~/.config/awesome
+git clone -b awesome-4.2 https://github.com/saurabhinabys/material-awesome.git ~/.config/awesome
 ```
 
 ### 3) Set the themes
